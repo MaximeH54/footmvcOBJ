@@ -12,8 +12,19 @@ class Teams extends Controller
 
     $this->render('views/listTeams.php', [
       'teams' => $teams,
-      'toto' => 10,
-      'super' => "ça marche"
+    ]);
+  }
+
+
+
+  public function showTeam($id)
+  {
+    $modelsTeams = new ModelsTeams();
+    $team = $modelsTeams->getTeam($id);
+    $players = $modelsTeams->getPlayers($id);
+
+    $this->render('views/showTeam.php', [
+      'team' => $team,
     ]);
   }
 }
