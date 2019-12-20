@@ -1,6 +1,8 @@
 <?php
 // Ici que des controllers
 use Controllers\Teams;
+use Controllers\Coachs;
+
 
 // Charge les classes PHP (ne pas y toucher)
 spl_autoload_register(function ($class) {
@@ -25,6 +27,14 @@ if ($route === 'teams') {
   } else {
     $controller->listTeams();
   }
+}elseif ($route ==='coachs') {
+  $controller = new Coachs;
+  if (isset($params[1])) {
+    $controller->showCoach($params[1]);
+    var_dump($params[1]);
+    // Appeler une methode detail d'une équipe dans le controller Teams
+  }
+
 } else {
   throw new\Exception('Page not found !');
 }

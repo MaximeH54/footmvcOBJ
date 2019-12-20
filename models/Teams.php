@@ -33,7 +33,7 @@ class Teams extends Model
       ON teams.id = player_has_team.id_players
       INNER JOIN coachs
       ON coachs_has_teams.id_coach = coachs.id
-      WHERE teams.id = ' . $id);
+      WHERE teams.id = ' . $id);      
     $stmt->execute();
     return $stmt->fetchAll();
   }
